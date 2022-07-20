@@ -89,8 +89,7 @@
                                                 </div>
                                             </fieldset>
                                             
-                                            <fieldset>
-                                                <!-- <form id="data-undian" action="" enctype="multipart/form-data" method="post"> -->
+                                                <fieldset>
                                                     <div class="form-group">
                                                         <label for="f1-email">Data Nasabah</label>
                                                         <input type="file" class="form-control" name="csvFile" id="csv-file" aria-label="file" accept=".xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" required="">
@@ -99,29 +98,10 @@
                                                         <label for="f1-first-name">Hadiah 1</label>
                                                         <input class="form-control" id="f1-first-name" type="text" name="f1-first-name" placeholder="Hadiah..." required="">
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="f1-first-name">Hadiah 2</label>
-                                                        <input class="form-control" id="f1-first-name" type="text" name="f1-first-name" placeholder="Hadiah..." required="">
+                                                    <div class="col-md-1">
+                                                        <button type="button" id="btn-add-sync" class="btn btn-outline-info">Tambah Hadiah</button>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="f1-first-name">Hadiah 3</label>
-                                                        <input class="form-control" id="f1-first-name" type="text" name="f1-first-name" placeholder="Hadiah..." required="">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="f1-first-name">Hadiah 4</label>
-                                                        <input class="form-control" id="f1-first-name" type="text" name="f1-first-name" placeholder="Hadiah..." required="">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="f1-first-name">Hadiah 5</label>
-                                                        <input class="form-control" id="f1-first-name" type="text" name="f1-first-name" placeholder="Hadiah..." required="">
-                                                    </div>
-                                                    <div class="f1-buttons">
-                                                        <button class="btn btn-primary btn-previous" type="button">Previous</button>
-                                                        <button class="btn btn-primary" type="button" onclick="storeDataUndian()">Submit</button>
-                                                    </div>
-                                                    <!-- </form> -->
                                                 </fieldset>
-                                            
                                             </form>
                                         </div>
                                     </div>
