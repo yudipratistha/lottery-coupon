@@ -88,18 +88,28 @@
                                                     <button class="btn btn-primary btn-next" type="button">Next</button>
                                                 </div>
                                             </fieldset>
-                                            
                                                 <fieldset>
                                                     <div class="form-group">
                                                         <label for="f1-email">Data Nasabah</label>
                                                         <input type="file" class="form-control" name="csvFile" id="csv-file" aria-label="file" accept=".xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" required="">
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="f1-first-name">Hadiah 1</label>
-                                                        <input class="form-control" id="f1-first-name" type="text" name="f1-first-name" placeholder="Hadiah..." required="">
+                                                    <div class="row g-2 mb-2 form-hadiah">
+                                                        <div class="col-md-6">
+                                                            <label class="form-label" for="">Hadiah 1</label>
+                                                            <input class="form-control hadiah" type="text" name="hadiah[]" placeholder="Hadiah 1..." required="">                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label class="form-label">Qty Hadiah 1</label>
+                                                            <input class="form-control" name="qty_hadiah[]" type="number" value="" placeholder="1..." required="">
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-1">
-                                                        <button type="button" id="btn-add-sync" class="btn btn-outline-info">Tambah Hadiah</button>
+                                                    <!-- <div class="form-group">
+                                                        <label for="">Hadiah 1</label>
+                                                        <input class="form-control hadiah" type="text" name="hadiah_1" placeholder="Hadiah 1..." required="">
+                                                    </div> -->
+                                                    <button type="button" id="btn-add-hadiah" class="btn btn-outline-info btn-sm">Tambah Hadiah</button>
+                                                    <div class="f1-buttons">
+                                                        <button class="btn btn-primary btn-previous" type="button">Previous</button>
+                                                        <button class="btn btn-primary" type="button" onclick="storeDataUndian()">Submit</button>
                                                     </div>
                                                 </fieldset>
                                             </form>
@@ -133,6 +143,26 @@
 <!-- Plugins JS Ends-->
 
 <script>
+    $(document).ready(function() {
+        $('#btn-add-hadiah').on("click", function(e){
+            e.stopPropagation();
+            var totalHadiah = $('.hadiah').length+1;
+            
+            $(this).parent().find('.form-hadiah').last().after('\
+            <div class="row g-2 mb-2 form-hadiah">\
+                <div class="col-md-6">\
+                    <label class="form-label" for="">Hadiah '+totalHadiah+'</label>\
+                    <input class="form-control hadiah" type="text" name="hadiah[]" placeholder="Hadiah '+totalHadiah+'..." required="">\
+                </div>\
+                <div class="col-md-6">\
+                    <label class="form-label">Qty Hadiah '+totalHadiah+'</label>\
+                    <input class="form-control" name="qty_hadiah[]" type="number" value="" placeholder="1..." required="">\
+                </div>\
+            </div>\
+            ')
+        });
+    });
+
     function storeDataUndian(){
         // console.log($('#ticket-id').val())
         swal.fire({

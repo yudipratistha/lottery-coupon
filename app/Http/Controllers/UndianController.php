@@ -28,6 +28,7 @@ class UndianController extends Controller
         
         try{
             $tableHeaderArr = array();
+            $tableHeaderJmlPointArr = array();
             $tableColumnDataArr = array();
             $i= 0;
 
@@ -40,11 +41,12 @@ class UndianController extends Controller
             foreach ($reader->getSheetIterator() as $sheet){
                 if ($sheet->getIndex() === 0) {
                     foreach ($sheet->getRowIterator() as $rowKey => $rowValue){
-                        if ($rowKey === 1) {
+                        if ($rowKey === 1){
                             foreach($rowValue->toArray() as $headerKey => $headerValue){
                                 if($headerValue === 'No Rek') $tableHeaderArr['no_rekening']= $headerKey;
                                 else if($headerValue === 'Nama Nasabah') $tableHeaderArr['nama_nasabah']= $headerKey;
                                 else if($headerValue === 'Alamat') $tableHeaderArr['alamat']= $headerKey;
+                                else if($headerValue === 'Jml. Point') $tableHeaderArr['jumlah_undian']= $headerKey;
                             }
                             continue;
                         }else{
@@ -56,7 +58,6 @@ class UndianController extends Controller
                                 }
                             }
                             $tableColumnDataArr[$i]['id_periode'] = 1;
-                            $tableColumnDataArr[$i]['nomor_undian'] = null;
                             $i++;
                         }
                     }
