@@ -81,8 +81,8 @@
                                             </div>
                                             <fieldset style="display: block;">
                                                 <div class="form-group">
-                                                    <label for="f1-first-name">Nama Periode</label>
-                                                    <input class="form-control" id="f1-first-name" type="text" name="f1-first-name" placeholder="Periode ...." required="">
+                                                    <label for="nama-periode">Nama Periode</label>
+                                                    <input class="form-control" id="nama-periode" type="text" name="nama_periode" placeholder="Periode ...." required="">
                                                 </div>
                                                 <div class="f1-buttons">
                                                     <button class="btn btn-primary btn-next" type="button">Next</button>

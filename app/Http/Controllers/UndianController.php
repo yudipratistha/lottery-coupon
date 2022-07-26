@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PeriodePeserta;
+use App\Models\Periode;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -31,6 +32,10 @@ class UndianController extends Controller
             $tableHeaderJmlPointArr = array();
             $tableColumnDataArr = array();
             $i= 0;
+
+            $dataPeriode = new Periode;
+            $dataPeriode->nama_periode = $request->nama_periode;
+            $dataPeriode->save();
 
             $path = $request->file('csvFile');
             
@@ -64,6 +69,8 @@ class UndianController extends Controller
                 }
             }
             $reader->close();
+
+            dd($tableColumnDataArr);
 
             foreach (array_chunk($tableColumnDataArr,1000) as $tableColumnData){
                 PeriodePeserta::insert($tableColumnData);
