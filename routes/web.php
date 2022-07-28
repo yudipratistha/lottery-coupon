@@ -18,6 +18,8 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => '/'], function(){
-    Route::get('input-periode-undian', 'UndianController@undianIndex')->name('inputPeriodeUndianIndex');
-    Route::post('store-data-undian', 'UndianController@storeDataUndian')->name('storeDataUndian');
+    Route::get('input-periode-undian', 'PeriodeController@periodeIndex')->name('inputPeriodeUndianIndex');
+    Route::post('store-data-periode', 'PeriodeController@storeDataPeriode')->name('storeDataPeriode');
+
+    Route::get('undian', 'UndianController@undianIndex')->name('undianIndex');
 });

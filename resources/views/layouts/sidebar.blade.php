@@ -21,7 +21,7 @@
                   </li>
                   
                     <li class="dropdown"><a class="nav-link menu-title link-nav" href=""><i data-feather="home"></i><span>Input Periode Undian</span></a></li>
-                    <li class="dropdown"><a class="nav-link menu-title link-nav" href=""><i data-feather="home"></i><span>Undian</span></a></li>
+                    <li class="dropdown"><a class="nav-link menu-title link-nav" href="{{route('undianIndex')}}"><i data-feather="home"></i><span>Undian</span></a></li>
                     <li class="dropdown"><a class="nav-link menu-title link-nav" href=""><i data-feather="home"></i><span>History Undian</span></a></li>
 
                     <!-- <li class="dropdown "><a class="nav-link menu-title link-nav "><i class="icon-ticket" style="margin-right: 15px;vertical-align: bottom;float: none;margin-left: -3px;font-size: 21px;"></i><span>Tickets</span></a></li> -->

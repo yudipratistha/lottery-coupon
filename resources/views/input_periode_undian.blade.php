@@ -109,7 +109,7 @@
                                                     <button type="button" id="btn-add-hadiah" class="btn btn-outline-info btn-sm">Tambah Hadiah</button>
                                                     <div class="f1-buttons">
                                                         <button class="btn btn-primary btn-previous" type="button">Previous</button>
-                                                        <button class="btn btn-primary" type="button" onclick="storeDataUndian()">Submit</button>
+                                                        <button class="btn btn-primary" type="button" onclick="storeDataPeriode()">Submit</button>
                                                     </div>
                                                 </fieldset>
                                             </form>
@@ -163,7 +163,7 @@
         });
     });
 
-    function storeDataUndian(){
+    function storeDataPeriode(){
         // console.log($('#ticket-id').val())
         swal.fire({
             title: "Tambah Data Undian",
@@ -178,7 +178,7 @@
                 formData.append('_token', '{{ csrf_token() }}');
                 return $.ajax({
                     type: "POST", 
-                    url: "{{route('storeDataUndian')}}",
+                    url: "{{route('storeDataPeriode')}}",
                     processData: false,
                     contentType: false,
                     cache: false,
