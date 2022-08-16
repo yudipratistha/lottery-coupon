@@ -20,18 +20,9 @@
                     </div>
                   </li>
                   
-                    <li class="dropdown"><a class="nav-link menu-title link-nav" href=""><i data-feather="home"></i><span>Input Periode Undian</span></a></li>
-                    <li class="dropdown"><a class="nav-link menu-title link-nav" href="{{route('undianIndex')}}"><i data-feather="home"></i><span>Undian</span></a></li>
-                    <li class="dropdown"><a class="nav-link menu-title link-nav" href=""><i data-feather="home"></i><span>History Undian</span></a></li>
-
-                    <!-- <li class="dropdown "><a class="nav-link menu-title link-nav "><i class="icon-ticket" style="margin-right: 15px;vertical-align: bottom;float: none;margin-left: -3px;font-size: 21px;"></i><span>Tickets</span></a></li> -->
-                    <!-- <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i data-feather="airplay"></i><span>Data</span></a>
-                    <ul class="nav-submenu menu-content">
-                      <li><a href="">Processing CSV Data</a></li>
-                      <li><a href="">Tickets</a></li>
-                    </ul>
-                  </li>-->
-                  
+                    <li class="dropdown"><a class="nav-link menu-title link-nav" id="undian" href="{{route('undianIndex')}}"><i data-feather="bell"></i><span>Undian</span></a></li>
+                    <li class="dropdown"><a class="nav-link menu-title link-nav" href="{{route('inputPeriodeUndianIndex')}}"><i data-feather="file-plus"></i><span>Input Periode Undian</span></a></li>
+                    <li class="dropdown"><a class="nav-link menu-title link-nav {{ isset($activeMenu) ? 'active' : '' }}" href="{{route('riwayatUndianIndex')}}"><i data-feather="clipboard"></i><span>History Undian</span></a></li>                  
                 </ul>
               </div>
               <div class="right-arrow" id="right-arrow"><i data-feather="arrow-right"></i></div>

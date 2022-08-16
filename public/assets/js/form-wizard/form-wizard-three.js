@@ -50,7 +50,7 @@ function bar_progress(progress_line_object, direction) {
     			current_active_step.removeClass('active').addClass('activated').next().addClass('active');
     			bar_progress(progress_line, 'right');
     			$(this).next().fadeIn();
-	    		scroll_to_class( $('.f1'), 20 );
+	    		scroll_to_class( $('.f1'), 250 );
 	    	});
     	}
     });
@@ -61,7 +61,7 @@ function bar_progress(progress_line_object, direction) {
     	   current_active_step.removeClass('active').prev().removeClass('activated').addClass('active');
     		bar_progress(progress_line, 'left');
     		$(this).prev().fadeIn();
-    		scroll_to_class( $('.f1'), 20 );
+    		scroll_to_class( $('.f1'), 250 );
     	});
     });
     $('.f1').on('submit', function(e) {

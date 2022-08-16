@@ -30971,3 +30971,8 @@ span.twitter-typeahead .tt-suggestion {
     60. RTL CSS Ends
 ==========================**/
 /*# sourceMappingURL=style.css.map */
+
+.undian-digit{
+  flex: 0 0 auto;
+  width: 11.667%;
+}

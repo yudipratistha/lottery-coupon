@@ -2,7 +2,6 @@
     <div class="page-main-header">
         <div class="main-header-right row m-0">
           <div class="main-header-left">
-            <div class="logo-wrapper"><a href=""><img class="img-fluid" src="{{url('/assets/images/logo/logo.png')}}" alt=""></a></div>
             <div class="dark-logo-wrapper"><a href=""><img class="img-fluid" src="{{url('/assets/images/logo/dark-logo.png')}}" alt=""></a></div>
             <div class="toggle-sidebar"><i class="status_toggle middle" data-feather="align-center" id="sidebar-toggle"></i></div>
           </div>
@@ -17,8 +16,19 @@
               </li>
             </ul>
           </div> -->
+          <div class="nav-right col" style="flex: 4 0 0%;display: flex;">
+            <div style="padding-top: 8px;padding-bottom: 8px;margin-right: 16px;" class=""><a href="" data-bs-original-title="" title=""><img src="http://127.0.0.1:8000/assets/images/logo/logo.png" alt="" style="width: 88px;" class=""></a></div>
+            <div style="display: flex;"><p style="
+                          text-align: center;
+                          font-size: 40px;
+                          font-weight: bold;
+                          padding-top: 14px;
+                      ">Pengundian Point Gebyar HUT LPD PANJER</p><div></div></div>  
+          </div>
           <div class="nav-right col pull-right right-menu p-0">
-            <ul class="nav-menus">
+              
+              <ul class="nav-menus">
+      
               <li><a class="text-dark" href="#!" onclick="javascript:toggleFullScreen()"><i data-feather="maximize"></i></a></li>
               <!-- <li class="onhover-dropdown">
                 <div class="bookmark-box"><i data-feather="star"></i></div>

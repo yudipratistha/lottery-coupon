@@ -24,9 +24,12 @@ class PeriodeController extends Controller
 
     public function storeDataPeriode(Request $request){
         ini_set('memory_limit','256M');
-        // $this->validate($request,[
-        //     'csvFile' => 'required',
-        // ]);
+        $this->validate($request,[
+            'nama_periode' => 'required',
+            'excelFile' => 'required',
+            'hadiah.*' => 'required',
+            'qty_hadiah.*' => 'required',
+        ]);
         
         try{
             $tableHeaderArr = array();
@@ -36,25 +39,25 @@ class PeriodeController extends Controller
             $hadiahDataArr = array();
             $i= 0;
 
-            $dataPeriode = new Periode;
-            $dataPeriode->nama_periode = $request->nama_periode;
-            $dataPeriode->save();
-
-            $path = $request->file('csvFile');
+            $path = $request->file('excelFile');
             
             $reader = ReaderFactory::createFromType(Type::XLSX);
             $reader->open($path);
 
-            $status = false;
+            $dataPeriode = new Periode;
+            $dataPeriode->nama_periode = $request->nama_periode;
+            $dataPeriode->save();
+            
             foreach ($reader->getSheetIterator() as $sheet){
                 if ($sheet->getIndex() === 0) {
                     foreach ($sheet->getRowIterator() as $rowKey => $rowValue){
                         if ($rowKey === 1){
                             foreach($rowValue->toArray() as $headerKey => $headerValue){
-                                if($headerValue === 'No Rek') $tableHeaderArr['no_rekening']= $headerKey;
-                                else if($headerValue === 'Nama Nasabah') $tableHeaderArr['nama_nasabah']= $headerKey;
-                                else if($headerValue === 'Alamat') $tableHeaderArr['alamat']= $headerKey;
-                                else if($headerValue === 'Jml. Point') $tableHeaderArr['jumlah_undian']= $headerKey;
+                                if(strtolower($headerValue) === 'no rek') $tableHeaderArr['no_rekening']= $headerKey;
+                                else if(strtolower($headerValue) === 'nama nasabah') $tableHeaderArr['nama_nasabah']= $headerKey;
+                                else if(strtolower($headerValue) === 'alamat') $tableHeaderArr['alamat']= $headerKey;
+                                else if(strtolower($headerValue) === 'jml. point') $tableHeaderArr['jumlah_undian']= $headerKey;
+                                else if(strtolower($headerValue) === 'produk') $tableHeaderArr['produk']= $headerKey;
                             }
                             continue;
                         }else{
@@ -95,5 +98,31 @@ class PeriodeController extends Controller
         } catch (HttpException $exception) {
             return response()->json(['error' => $e->getMessage()], 500);
         }
+    }
+
+    public function getDataPeriodeUndian(Request $request){
+        $dataPeriodeArr = array();
+
+        if(!isset($request->q)){
+            $dataPeriode = Periode::orderBy('id', 'desc')->paginate(15);
+        }else{
+            $dataPeriode = Periode::orderBy('id', 'desc')->where('nama_periode','LIKE','%'.$request->q.'%')->get()->toArray();
+        }
+        
+
+        for($i= 0; $i < count($dataPeriode); $i++){
+            $dataPeriodeArr[$i]['id'] = $dataPeriode[$i]['id'];
+            $dataPeriodeArr[$i]['name'] = $dataPeriode[$i]['nama_periode'];
+        }
+
+        $response = array(
+            // "draw" => intval($draw),
+            // "iTotalRecords" => $totalRecords,
+            // "iTotalDisplayRecords" => $totalRecords,
+            "items" => $dataPeriodeArr
+        );
+
+        return response()->json($response);
+        // dd($dataPeriodeArr);
     }
 }
